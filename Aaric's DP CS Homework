@@ -1,0 +1,82 @@
+"""
+HIGHER LEVEL UNIT 5 ASSIGNMENT
+"""
+
+### FACTORIAL RECURSIVE FUNCTION ###
+def factorial(n: int) -> int:
+    """
+    a recursive function that computes the factorial of given n.
+
+    Args:
+        n (int): the number to calculate the factorial of.
+
+    Return (int): the computed factorial of n.
+    """
+    #base case: if n is 1, return 1 because 1! is defined as 1
+    if n == 1: 
+        return 1
+    else: #recursive case: n! = n * (n-1)!
+        return n * factorial(n - 1) #keep recursing until n reaches 1
+
+
+### FIBONNACI SEQUENCE RECURSIVE FUNCTION ###
+def fibonacci(n: int) -> int:
+    """
+    a recursive function that will output the Fibonnaci Sequence using the 
+    definition such that the sequence begins with 0 not 1, so expect:
+    0, 1, 1, 2, 3, 5, 7, ... NOT 1, 1, 2, 3, 5, 7, 12, ...
+
+    Args:
+        n (int): the number of terms requested of the Fibonnaci Sequence
+
+    Return (int): the requested number of terms from Fibonnaci Sequence in order
+    """
+    if n == 0: #base case 1: the 0th Fibonacci number is 0
+        return 0
+    elif n == 1: #base case 2: the 1st Fibonacci number is 1
+        return 1
+    else: #recursive case: adding the preceding two numbers
+        return fibonacci(n - 1) + fibonacci(n - 2) #recurse until n is 0
+
+    """
+    example usage of fibonnaci(): print the first 10 Fibonacci numbers
+
+    for i in range(10):
+        print(fibonacci(i), end = ' ') 
+        
+    output: 0 1 1 2 3 5 8 13 21 34
+    """
+
+"""
+TOWERS OF HANOI CHALLENGE
+"""
+def towers(n: int, source: str, target: str, auxiliary: str) -> None:
+    """
+    solves the Towers of Hanoi problem recursively.
+
+    Args:
+        n: the number of discs to move
+        source: name of the starting peg (e.g. 'A')
+        target: name of the destination peg (e.g. 'C')
+        auxiliary: name of the helper peg (e.g. 'B')
+
+    Return (None): nothing except print statements explaining solving process
+    """
+    if n == 1: #base case: only one disc to move
+        print(f"move disc 1 from {source} to {target}")
+        return
+
+    #step 1: move n-1 discs from source to auxiliary, using target as helper
+    towers(n - 1, source, auxiliary, target)
+
+    #step 2: move the nth disc (largest) from source to target
+    print(f"move disc {n} from {source} to {target}")
+
+    #step 3: move the n-1 discs from auxiliary to target, using source as helper
+    towers(n - 1, auxiliary, target, source)
+
+    """
+    example usage: solve for 3 discs
+    
+    towers(3, 'A', 'C', 'B')
+    """
