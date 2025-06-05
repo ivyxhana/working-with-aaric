@@ -24,7 +24,7 @@ def fibonacci(n: int) -> int:
     """
     a recursive function that will output the Fibonnaci Sequence using the 
     definition such that the sequence begins with 0 not 1, so expect:
-    0, 1, 1, 2, 3, 5, 7, ... NOT 1, 1, 2, 3, 5, 7, 12, ...
+    0, 1, 1, 2, 3, 5, 7, ... NOT 1, 1, 2, 3, 5, 8, 13, ...
 
     Args:
         n (int): the number of terms requested of the Fibonnaci Sequence
