@@ -29,7 +29,7 @@ def fibonacci(n: int) -> int:
     Args:
         n (int): the number of terms requested of the Fibonnaci Sequence
 
-    Return (int): the requested number of terms from Fibonnaci Sequence in order
+    Return (int): a number from Fibonnaci Sequence
     """
     if n == 0: #base case 1: the 0th Fibonacci number is 0
         return 0
